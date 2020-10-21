@@ -81,7 +81,9 @@ void loop(){
   }
   
   if(keyPressed) {
+   terminalGUIobj->printConsole(F("STOP UART listening"), TFT_MAGENTA, 1, 0);
    toPrint1 = terminalGUIobj->getUserInput();
+   terminalGUIobj->printConsole(F("START UART listening"), TFT_MAGENTA, 1, 0);
 
    if (toPrint1.length()==1){
       if(toPrint1[0]=='h'){
@@ -115,12 +117,11 @@ void loop(){
         delay(100);
         toPrint1 = "UART set: " + (String)baudInt;
         terminalGUIobj->printConsole(toPrint1, TFT_MAGENTA, 1, 0);
+      }
     }
     else{
-    
-    terminalGUIobj->printConsole(toPrint1, TFT_GREEN, 1, 0);
-    Serial.print(toPrint1);
-    }
+      terminalGUIobj->printConsole(toPrint1, TFT_GREEN, 1, 0);
+      Serial.print(toPrint1);
     }
   }
 }
